@@ -80,3 +80,5 @@
  */
 #import "BFPassword.h"
 #import "BFSystemSound.h"
+#import "BFLog.h"
+

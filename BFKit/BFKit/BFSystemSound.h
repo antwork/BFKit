@@ -25,7 +25,7 @@
 //  SOFTWARE.
 
 #import <AudioToolbox/AudioToolbox.h>
-
+#import <UIKit/UIKit.h>
 /**
  *  Audio IDs enum. It's not all IDs
  */
@@ -100,5 +100,15 @@ typedef NS_ENUM(NSInteger, AudioID)
  *  Play system sound vibrate
  */
 + (void)playSystemSoundVibrate;
+
+/*
+ * Play custom sound by url
+ */
++ (SystemSoundID)playCustomSound:(NSURL *)soundURL;
+
+/*
+ * dispose custom sound
+ */
++ (BOOL)disposeSound:(SystemSoundID)soudID;
 
 @end

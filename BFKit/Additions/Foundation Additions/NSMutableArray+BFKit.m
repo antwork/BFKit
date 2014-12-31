@@ -30,7 +30,8 @@
 
 - (id)safeObjectAtIndex:(NSUInteger)index
 {
-    if([self count] > 0)
+    // modified by antwork
+    if([self count] > index)
         return [self objectAtIndex:index];
     else
         return nil;
@@ -41,7 +42,9 @@
     if(to != from)
     {
         id obj = [self safeObjectAtIndex:from];
-        [self removeObjectAtIndex:from];
+        if (obj) {
+            [self removeObjectAtIndex:from];
+        }
         
         if(to >= [self count])
             [self addObject:obj];
@@ -52,6 +55,10 @@
 
 - (NSMutableArray *)reversedArray
 {
+    if (self.count <= 1) {
+        return [self mutableCopy];
+    }
+    
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
     NSEnumerator *enumerator = [self reverseObjectEnumerator];
     

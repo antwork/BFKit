@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18289A101A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18289A0F1A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.m */; };
+		18289A121A53F8BB0044F2D6 /* NSArray+BFKitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18289A111A53F8BB0044F2D6 /* NSArray+BFKitTest.m */; };
+		18289A131A53F8C70044F2D6 /* NSArray+BFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4902772D19BDF424009B8BC1 /* NSArray+BFKit.m */; };
 		490276F019BDF3F8009B8BC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490276EF19BDF3F8009B8BC1 /* Foundation.framework */; };
 		490276F219BDF3F8009B8BC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490276F119BDF3F8009B8BC1 /* CoreGraphics.framework */; };
 		490276F419BDF3F8009B8BC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490276F319BDF3F8009B8BC1 /* UIKit.framework */; };
@@ -77,6 +80,10 @@
 		0741CCC51A506D3C0032EAAD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BFKit.strings; sourceTree = "<group>"; };
 		0741CCC61A506E7A0032EAAD /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/BFKit.strings; sourceTree = "<group>"; };
 		0C5B71EC1A51A4A600EAE72C /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BFKit.strings; sourceTree = "<group>"; };
+		18289A0B1A53E88F0044F2D6 /* BFLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLog.h; sourceTree = "<group>"; };
+		18289A0E1A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+BFKit.h"; sourceTree = "<group>"; };
+		18289A0F1A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+BFKit.m"; sourceTree = "<group>"; };
+		18289A111A53F8BB0044F2D6 /* NSArray+BFKitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BFKitTest.m"; sourceTree = "<group>"; };
 		490276EC19BDF3F8009B8BC1 /* BFKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		490276EF19BDF3F8009B8BC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		490276F119BDF3F8009B8BC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -265,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				4902771D19BDF3F8009B8BC1 /* BFKitDemoTests.m */,
+				18289A111A53F8BB0044F2D6 /* NSArray+BFKitTest.m */,
 				4902771819BDF3F8009B8BC1 /* Supporting Files */,
 			);
 			path = BFKitDemoTests;
@@ -310,6 +318,8 @@
 				4902773119BDF424009B8BC1 /* NSFileManager+BFKit.m */,
 				4902773219BDF424009B8BC1 /* NSMutableArray+BFKit.h */,
 				4902773319BDF424009B8BC1 /* NSMutableArray+BFKit.m */,
+				18289A0E1A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.h */,
+				18289A0F1A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.m */,
 				4902773419BDF424009B8BC1 /* NSNumber+BFKit.h */,
 				4902773519BDF424009B8BC1 /* NSNumber+BFKit.m */,
 				4902773619BDF424009B8BC1 /* NSProcessInfo+BFKit.h */,
@@ -360,6 +370,7 @@
 				4902775319BDF424009B8BC1 /* BFPassword.m */,
 				4902775419BDF424009B8BC1 /* BFSystemSound.h */,
 				4902775519BDF424009B8BC1 /* BFSystemSound.m */,
+				18289A0B1A53E88F0044F2D6 /* BFLog.h */,
 			);
 			path = BFKit;
 			sourceTree = "<group>";
@@ -437,6 +448,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Fabrizio Brancati";
 				TargetAttributes = {
+					490276EB19BDF3F8009B8BC1 = {
+						DevelopmentTeam = 6B9PQZG2W9;
+					};
 					4902770F19BDF3F8009B8BC1 = {
 						TestTargetID = 490276EB19BDF3F8009B8BC1;
 					};
@@ -522,6 +536,7 @@
 			files = (
 				4902776219BDF424009B8BC1 /* UIButton+BFKit.m in Sources */,
 				4902770919BDF3F8009B8BC1 /* FoundationViewController.m in Sources */,
+				18289A101A53F4ED0044F2D6 /* NSMutableDictionary+BFKit.m in Sources */,
 				4902776C19BDF424009B8BC1 /* UIWebView+BFKit.m in Sources */,
 				49C4537419BE4D3500E5052C /* UIScrollView+BFKit.m in Sources */,
 				4902775B19BDF424009B8BC1 /* NSArray+BFKit.m in Sources */,
@@ -557,6 +572,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4902771E19BDF3F8009B8BC1 /* BFKitDemoTests.m in Sources */,
+				18289A131A53F8C70044F2D6 /* NSArray+BFKit.m in Sources */,
+				18289A121A53F8BB0044F2D6 /* NSArray+BFKitTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -651,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -662,11 +679,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fabrizio Brancati (63PBW86687)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BFKitDemo/BFKitDemo-Prefix.pch";
 				INFOPLIST_FILE = "BFKitDemo/BFKitDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -677,11 +694,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Fabrizio Brancati (2PN5CL25E2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BFKitDemo/BFKitDemo-Prefix.pch";
 				INFOPLIST_FILE = "BFKitDemo/BFKitDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

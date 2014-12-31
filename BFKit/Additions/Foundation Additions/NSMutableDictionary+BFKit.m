@@ -1,6 +1,6 @@
 //
-//  BFSystemSound.m
-//  BFKit
+//  NSMutableDictionary+BFKit.m
+//  BFKitDemo
 //
 //  The MIT License (MIT)
 //
@@ -24,47 +24,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-#import "BFSystemSound.h"
-#import "BFLog.h"
-@implementation BFSystemSound
+#import "NSMutableDictionary+BFKit.h"
 
-+ (void)playSystemSound:(AudioID)audioID
-{
-    AudioServicesPlaySystemSound(audioID);
-}
+@implementation NSMutableDictionary (BFKit)
 
-+ (void)playSystemSoundVibrate
-{
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-}
-
-/*
- * Play custom sound by url
- */
-+ (SystemSoundID)playCustomSound:(NSURL *)soundURL
-{
-    SystemSoundID soundID;
-    
-    OSStatus err = AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL),
-                                                    &soundID);
-    if (err != kAudioServicesNoError) {
-        BFLog(@"Could not load %@, error code:", soundURL);
+- (void)safeSetObject:(id)anObject forKey:(id<NSCopying>)aKey {
+    if (nil == anObject) {
+        return;
     }
-    
-    return soundID;
-}
-
-/*
- * dispose custom sound
- */
-+ (BOOL)disposeSound:(SystemSoundID)soudID
-{
-    OSStatus err = AudioServicesDisposeSystemSoundID(soudID);
-    if (err != kAudioServicesNoError) {
-        BFLog(@"fail:dipose sound %i", (unsigned int)soudID);
-        return NO;
-    }
-    return YES;
+    [self setObject:anObject forKey:aKey];
 }
 
 @end

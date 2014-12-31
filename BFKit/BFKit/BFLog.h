@@ -1,6 +1,6 @@
 //
-//  BFSystemSound.m
-//  BFKit
+//  BFLog.h
+//  Only show log in DEBUG mode
 //
 //  The MIT License (MIT)
 //
@@ -24,47 +24,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-#import "BFSystemSound.h"
-#import "BFLog.h"
-@implementation BFSystemSound
-
-+ (void)playSystemSound:(AudioID)audioID
-{
-    AudioServicesPlaySystemSound(audioID);
-}
-
-+ (void)playSystemSoundVibrate
-{
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-}
-
-/*
- * Play custom sound by url
- */
-+ (SystemSoundID)playCustomSound:(NSURL *)soundURL
-{
-    SystemSoundID soundID;
-    
-    OSStatus err = AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL),
-                                                    &soundID);
-    if (err != kAudioServicesNoError) {
-        BFLog(@"Could not load %@, error code:", soundURL);
-    }
-    
-    return soundID;
-}
-
-/*
- * dispose custom sound
- */
-+ (BOOL)disposeSound:(SystemSoundID)soudID
-{
-    OSStatus err = AudioServicesDisposeSystemSoundID(soudID);
-    if (err != kAudioServicesNoError) {
-        BFLog(@"fail:dipose sound %i", (unsigned int)soudID);
-        return NO;
-    }
-    return YES;
-}
-
-@end
+#ifdef DEBUG
+#define BFLog(format, ...)  NSLog(format, ## __VA_ARGS__)
+#else
+#define BFLog(format, ...)
+#endif

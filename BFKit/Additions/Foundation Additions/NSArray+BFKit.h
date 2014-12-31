@@ -24,6 +24,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+/* circle index by maxSize, -1 point to last index */
+NSInteger BFSuperCircle(NSInteger index, NSInteger maxSize);
+
 /**
  *  This class add some useful methods to NSArray
  */
@@ -41,7 +44,7 @@
 /**
  *  Create a reversed array from self
  *
- *  @return Return the reversed array
+ *  @return Return反 ['æntɪ]the reversed array
  */
 - (NSArray *)reversedArray;
 
@@ -69,5 +72,18 @@
  *  @return Return the JSON as NSString or nil if error while parsing
  */
 + (NSArray *)reversedArray:(NSArray *)array;
+
+/*
+ *  when index is out of range, will from begin or end of array, like a circle
+ */
+- (id)objectAtCircleIndex:(NSInteger)index;
+
+/*
+ *  get offset array with offset and direction
+ *  offset can not be negative
+ *  if reverse = NO  rotate closewise
+ *  if reverse = YES rotate anticlockwise
+ */
+- (NSArray *)arrayWithOffset:(NSUInteger)offset reverse:(BOOL)reverse;
 
 @end

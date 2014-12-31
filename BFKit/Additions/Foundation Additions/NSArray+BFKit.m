@@ -26,36 +26,42 @@
 
 #import "NSArray+BFKit.h"
 
+/* circle index by maxSize, caculate from 0 to maxSize(not include)
+ * eg: index = 0,  maxSize = 78, result 0
+ * eg: index = -1, maxSize = 78, result 77
+ */
+NSInteger BFSuperCircle(NSInteger index, NSInteger maxSize) {
+    if (index < 0) {
+        index = index % maxSize;
+        index += maxSize;
+    }
+    
+    if (index >= maxSize) {
+        index = index % maxSize;
+    }
+    
+    return index;
+}
+
 @implementation NSArray (BFKit)
 
 - (id)safeObjectAtIndex:(NSUInteger)index
 {
-    if([self count] > 0) return [self objectAtIndex:index];
+    // modified by antwork
+    if([self count] > index) return [self objectAtIndex:index];
     else return nil;
 }
 
 - (NSArray *)reversedArray
 {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self count]];
-    NSEnumerator *enumerator = [self reverseObjectEnumerator];
-    
-    for(id element in enumerator) [array addObject:element];
-    
-    return array;
+    // modified by antwork
+    return [NSArray reversedArray:self];
 }
 
 - (NSString *)arrayToJson
 {
-    NSString *json = nil;
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:0 error:&error];
-    if(!error)
-    {
-        json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        return json;
-    }
-    else
-        return nil;
+    // modified by antwork
+    return [NSArray arrayToJson:self];
 }
 
 + (NSString *)arrayToJson:(NSArray*)array
@@ -80,6 +86,37 @@
     for(id element in enumerator) [arrayTemp addObject:element];
     
     return array;
+}
+
+/*
+ * when index is out of range, will from begin or end, like a circle
+ */
+- (id)objectAtCircleIndex:(NSInteger)index
+{
+    NSInteger realIndex = BFSuperCircle(index, self.count);
+    
+    return [self objectAtIndex:realIndex];
+}
+
+- (NSArray *)arrayWithOffset:(NSUInteger)offset reverse:(BOOL)reverse
+{
+    if (self.count <= 1) {
+        return [self copy];
+    }
+    
+    NSInteger realOffset = offset % self.count;
+    
+    NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:self.count];
+    
+    for (int i = 0; i < self.count; i++) {
+        NSInteger realIndex = !reverse?(i - realOffset):(i + realOffset);
+        id object = [self objectAtCircleIndex:realIndex];
+        [resultArray addObject:object];
+    }
+    
+    NSArray *backArray = [resultArray copy];
+    
+    return backArray;
 }
 
 @end
